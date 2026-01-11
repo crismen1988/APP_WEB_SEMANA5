@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Asegura que la página se vea bien en dispositivos móviles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galería Interactiva</title>
+  <!-- Enlace a la hoja de estilos CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Contenedor principal que centra y da estilo a toda la aplicación -->
+  <div class="container">
+    <h1>Galery Car</h1>
+
+    <!-- Panel de controles: entrada de URL y botones -->
+    <div class="controls">
+      <!-- Campo para ingresar la URL de una imagen. 
+       Tipo "url" permite validación básica del navegador -->
+      <input type="url" id="image-url" placeholder="Ingresa la URL de una imagen" />
+      <!-- Botón para agregar la imagen ingresada -->
+      <button id="add-btn">Agregar Imagen</button>
+      <!-- Botón para eliminar la imagen actualmente seleccionada -->
+      <button id="delete-btn">Eliminar Imagen Seleccionada</button>
+    </div>
+
+    <!-- Contenedor donde se insertarán dinámicamente las imágenes -->
+    <div id="gallery" class="gallery"></div>
+  </div>
+
+  <!-- Enlaza el archivo JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

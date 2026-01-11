@@ -1,0 +1,176 @@
+/* Caja de reseteo */ 
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos del body y contenedor principal */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  padding: 20px;
+  color: #333;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Efecto hover en el contenedor */
+.container:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+h1 {
+  text-align: center;
+  font-size: 7rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Controles de entrada y botón */
+.controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Estilos para el input y botón */
+.controls input {
+  flex: 1;
+  min-width: 250px;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Estilo de enfoque para el input */
+.controls input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Estilos para el botón */
+.controls button {
+  padding: 12px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+/* Efectos hover y active para el botón */
+.controls button:hover {
+  background-color: #2980b9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* Efecto active para el botón */
+.controls button:active {
+  transform: translateY(0);
+}
+
+/* Galería con 5 columnas en escritorio */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+/* Adaptación móvil */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Adaptación para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+/* Contenedor de cada imagen (tarjeta) */
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* Relación 1:1 → cuadrada */
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+/* Efecto hover en la tarjeta de imagen */
+.image-wrapper:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón de eliminar */
+.image-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid transparent;
+  transition: border 0.2s, filter 0.2s;
+}
+
+/* Estilos para el botón de eliminar */
+.image-wrapper.selected img {
+  border: 3px solid #2ecc71;
+  box-shadow: 0 0 16px rgba(46, 204, 113, 0.5);
+  filter: brightness(1.05);
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplicar animación a las tarjetas de imagen */
+.image-wrapper {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* Estilos adicionales para los botones cuando están desactivados */
+.delete-btn:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
